@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AWS API Gateway Test</title>
+    <meta name="description" content="AWS API Gateway Test">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body style="padding:40px;">
+<div id="app">
+<v-app>
+<v-content>
+    <v-container>
+        <v-layout row wrap justify-center>
+            <v-flex xs12 sm8 md6 lg4 xl4>
+                <v-card class="pa-4">
+                    <h3 class="title mb-4">EMAIL API TEST</h3>
+                    <v-form v-model="valid">
+                        <v-text-field
+                            label="Your Name"
+                            v-model="name"
+                            :rules="nameRules"
+                             required></v-text-field>
+                        <v-text-field
+                            label="Your E-mail Address"
+                            v-model="email"
+                            :rules="emailRules"
+                            required></v-text-field>
+                        <v-text-field
+                            label="Message"
+                            v-model="message"
+                            :rules="messageRules"
+                            multi-line
+                            required></v-text-field>
+                        <v-btn
+                            block
+                            @click.native="onPost()" 
+                            :disabled="!valid" 
+                            class="mt-2 mb-4">
+                            SEND
+                        </v-btn>
+                    </v-form>
+                    <h3 class="subheading">RESPONSE</h3>
+                    <div v-if="showSuccess" class="alert alert-success" role="alert">
+                        {{ reponse }}
+                    </div>
+                    <div v-if="showError" class="alert alert-danger" role="alert">
+                        {{ reponse }}
+                    </div>
+                </v-card>   
+            </v-flex>
+        </v-layout>
+    </v-container>
+</v-content>
+</v-app>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        apiUrl: '', 
+        response: '',
+        showSuccess: false,
+        showError: false,
+        valid: false,
+        name: '',
+        nameRules: [
+            (v) => !!v || 'Name is required'
+        ],
+        email: '',
+        emailRules: [
+            (v) => !!v || 'E-mail is required',
+            (v) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+        ],
+        message: 'Test',
+        messageRules: [
+            (v) => !!v || 'Message is required',
+            (v) => v.length >= 15 || 'At least 15 characters'
+        ]
+    },
+    methods: {
+        onPost: function () {
+            console.log('sending post request to ' + this.apiUrl)
+            var xhr = new XMLHttpRequest()
+            xhr.open('POST', this.apiUrl)
+            xhr.onreadystatechange = (event) => {
+                console.log(event.target.response)
+            }
+            xhr.setRequestHeader('Content-Type', 'application/json')
+            xhr.send(JSON.stringify({ 
+                "to": "", 
+                "body": this.message, 
+                "subject": "Test Email API",
+                "from": this.email
+            }))
+        }
+    }
+})
+</script>
+</body>
+</html>
