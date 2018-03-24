@@ -1,0 +1,25 @@
+service: aws-dynamodb
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: ap-southeast-1
+
+functions:
+  create-table:
+    handler: handler.main
+    events:
+      - http:
+          path: dynamodb/create
+          method: post
+
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"
