@@ -1,0 +1,11 @@
+{
+    "Type": "Query",
+    "ExpressionAttributeValues": {
+        ":v1": {
+            "S": "As I Lay Dying"
+        }
+    }, 
+    "KeyConditionExpression": "Artist = :v1",
+    "ReturnConsumedCapacity": "TOTAL",
+    "TableName": "prefix--sample-table"
+}

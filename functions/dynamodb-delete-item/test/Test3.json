@@ -1,0 +1,15 @@
+{
+    "Item": {
+        "AlbumTitle": {
+            "S": "The Powerless Rise"
+        },
+        "Artist": {
+            "S": "As I Lay Dying"
+        },
+        "SongTitle": {
+            "S": "Without Conclusion"
+        }
+    },
+    "ReturnConsumedCapacity": "TOTAL",
+    "TableName": "prefix--sample-table"
+}
