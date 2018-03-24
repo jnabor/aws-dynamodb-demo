@@ -1,0 +1,9 @@
+{
+    "Item": {
+        "AlbumTitle": { "S": "Somewhat Famous" },
+        "Artist": { "S": "No One You Know" },
+        "SongTitle": { "S": "Call Me Today" }
+    },
+    "ReturnConsumedCapacity": "TOTAL",
+    "TableName": "sample-table"
+}
