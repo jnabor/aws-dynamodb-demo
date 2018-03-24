@@ -1,3 +1,8 @@
+# AWS DynamoDB
+## DYNAMODB DEMO
+## Access via AWS API Gateway with AWS Cognito Authorizer
+
+
 Welcome to the AWS CodeStar sample web application
 ==================================================
 
