@@ -1,10 +1,10 @@
 {
-    "tablename": "sample-table",
+    "tablename": "prefix--sample-table",
     "AttributeDefinitions": [
         {
             "AttributeName": "Artist",
             "AttributeType": "S"
-        }, 
+        },
         {
             "AttributeName": "SongTitle",
             "AttributeType": "S"
@@ -12,7 +12,7 @@
     ],
     "KeySchema": [
         {
-            "AttributeName": "Artist", 
+            "AttributeName": "Artist",
             "KeyType": "HASH"
         },
         {
@@ -20,6 +20,6 @@
             "KeyType": "RANGE"
         }
     ],
-    "ReadCapacityUnits": 5, 
+    "ReadCapacityUnits": 5,
     "WriteCapacityUnits": 5
 }

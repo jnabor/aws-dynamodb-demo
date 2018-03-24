@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
             ReadCapacityUnits: event.ReadCapacityUnits, 
             WriteCapacityUnits: event.WriteCapacityUnits
         }, 
-        TableName: 'prefix--' + event.tablename
+        TableName: event.tablename
     }
     
     dynamodb.createTable(params, function(err, data) {
