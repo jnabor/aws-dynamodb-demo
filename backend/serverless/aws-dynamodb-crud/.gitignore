@@ -6,4 +6,4 @@ jspm_packages
 .serverless
 
 #configuration files
-backend/serverless/aws-dynamodb-crud/config.js
+config.js
