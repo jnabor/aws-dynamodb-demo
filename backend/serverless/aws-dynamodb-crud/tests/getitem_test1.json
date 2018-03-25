@@ -1,0 +1,13 @@
+{
+    "Type": "Single",
+    "Key": {
+        "Artist": {
+            "S": "As I Lay Dying"
+        }, 
+        "SongTitle": {
+            "S": "Through Struggle"
+        }
+    },
+    "ReturnConsumedCapacity": "TOTAL",
+    "TableName": "prefix--sample-table"
+}

@@ -62,3 +62,6 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
+
+environment:
+  variable1: value1

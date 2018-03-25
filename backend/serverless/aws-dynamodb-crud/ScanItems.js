@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk')
 var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-10'})
 
-exports.handler = (event, context, callback) => {
+module.exports.handler = (event, context, callback) => {
     const params = {
         ReturnConsumedCapacity: event.ReturnConsumedCapacity,
         TableName: event.TableName
