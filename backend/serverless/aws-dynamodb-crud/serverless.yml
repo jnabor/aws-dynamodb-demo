@@ -1,58 +1,64 @@
 service: aws-dynamodb
+
 provider:
   name: aws
   runtime: nodejs6.10
   stage: dev
   region: ap-southeast-1
-iamRoleStatements:
-  - Effect: "Allow"
-#      Action:
-#        - "s3:ListBucket"
-#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-#    - Effect: "Allow"
-#      Action:
-#        - "s3:PutObject"
-#      Resource:
-#        Fn::Join:
-#          - ""
-#          - - "arn:aws:s3:::"
-#            - "Ref" : "ServerlessDeploymentBucket"
-#            - "/*"
+
 functions:
   AddEditItem:
-    handler: handler.AddEditItem
+    handler: AddEditItem.handler
     events:
       - http:
-        path: tableitem/addedit
-        method: post
-        cors: true
+          path: table/addedititem
+          method: post
+          cors: true
   DeleteItem:
-    handler: handler.DeleteItem
+    handler: DeleteItem.handler
     events:
       - http:
-        path: tableitem/delete
-        method: post
-        cors: true
+          path: table/deleteitem
+          method: post
+          cors: true
   GetItem:
-    handler: handler.GetItem
+    handler: GetItem.handler
     events:
       - http:
-        path: tableitem/getitem
-        method: get
-        cors: true
+          path: table/getitem
+          method: get
+          cors: true
   QueryItems:
-    handler: handler.QueryItems
+    handler: QueryItems.handler
     events:
       - http:
-        path: tableitem/getitem
-        method: get
-        cors: true
+          path: table/queryitems
+          method: get
+          cors: true
   ScanItems:
-    handler: handler.ScanItems
+    handler: ScanItems.handler
     events:
       - http:
-        path: tableitem/getitem
-        method: get
-        cors: true
-Resources:
-   NewResource:
+          path: table/scanitems
+          method: get
+          cors: true
+
+resources:
+  Resources:
+    MusicTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: prefix--sample-table
+        AttributeDefinitions:
+          - AttributeName: Artist
+            AttributeType: S
+          - AttributeName: SongTitle
+            AttributeType: S
+        KeySchema:
+          - AttributeName: Artist
+            KeyType: HASH
+          - AttributeName: SongTitle
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
