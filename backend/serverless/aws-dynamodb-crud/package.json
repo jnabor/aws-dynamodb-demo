@@ -1,22 +1,22 @@
 {
-    "name": "aws-dynamodb-demo-test",
-    "version": "1.0.0",
-    "description": "",
-    "author": "Jayson Nabor <sonabstudios@gmail.com>",
-    "private": true,
-    "scripts": {
-        "create": "serverless create -t aws-nodejs",
-        "deploy": "serverless deploy",
-        "test1": "serverless invoke --function AddEditItem --path tests/addedit_test1.json --log",
-        "test2": "serverless invoke --function AddEditItem --path tests/addedit_test2.json --log",
-        "test3": "serverless invoke --function AddEditItem --path tests/addedit_test3.json --log",
-        "test4": "serverless invoke --function AddEditItem --path tests/addedit_test4.json --log",
-        "test5": "serverless invoke --function AddEditItem --path tests/addedit_test5.json --log",
-        "test6": "serverless invoke --function GetItem --path tests/getitem_test1.json --log",
-        "test7": "serverless invoke --function QueryItems --path tests/queryitems_test1.json --log",
-        "test8": "serverless invoke --function ScanItems --path tests/scanitems_test1.json --log",
-        "test9": "serverless invoke --function DeleteItem --path tests/deleteitem_test1.json --log",
-        "test10": "serverless invoke --function DeleteItem --path tests/deleteitem_test2.json --log",
-        "test11": "serverless invoke --function ScanItems --path tests/scanitems_test1.json --log"
-    }
+  "name": "aws-dynamodb-demo-test",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Jayson Nabor <sonabstudios@gmail.com>",
+  "private": true,
+  "scripts": {
+    "create": "serverless create -t aws-nodejs",
+    "deploy": "serverless deploy",
+    "test1": "serverless invoke --function AddEditItem --path tests/addedit_test1.json --log",
+    "test2": "serverless invoke --function AddEditItem --path tests/addedit_test2.json --log",
+    "test3": "serverless invoke --function AddEditItem --path tests/addedit_test3.json --log",
+    "test4": "serverless invoke --function AddEditItem --path tests/addedit_test4.json --log",
+    "test5": "serverless invoke --function AddEditItem --path tests/addedit_test5.json --log",
+    "test6": "serverless invoke --function GetItem --path tests/getitem_test1.json --log",
+    "test7": "serverless invoke --function QueryItems --path tests/queryitems_test1.json --log",
+    "test8": "serverless invoke --function ScanItems --path tests/scanitems_test1.json --log",
+    "test9": "serverless invoke --function DeleteItem --path tests/deleteitem_test1.json --log",
+    "test10": "serverless invoke --function DeleteItem --path tests/deleteitem_test2.json --log",
+    "test11": "serverless invoke --function ScanItems --path tests/scanitems_test1.json --log"
+  }
 }
