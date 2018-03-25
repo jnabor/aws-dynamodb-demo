@@ -1,0 +1,58 @@
+service: aws-dynamodb
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: ap-southeast-1
+iamRoleStatements:
+  - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+functions:
+  AddEditItem:
+    handler: handler.AddEditItem
+    events:
+      - http:
+        path: tableitem/addedit
+        method: post
+        cors: true
+  DeleteItem:
+    handler: handler.DeleteItem
+    events:
+      - http:
+        path: tableitem/delete
+        method: post
+        cors: true
+  GetItem:
+    handler: handler.GetItem
+    events:
+      - http:
+        path: tableitem/getitem
+        method: get
+        cors: true
+  QueryItems:
+    handler: handler.QueryItems
+    events:
+      - http:
+        path: tableitem/getitem
+        method: get
+        cors: true
+  ScanItems:
+    handler: handler.ScanItems
+    events:
+      - http:
+        path: tableitem/getitem
+        method: get
+        cors: true
+Resources:
+   NewResource:
