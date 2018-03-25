@@ -1,14 +1,11 @@
 {
-    "Item": {
-        "AlbumTitle": {
-            "S": "The Powerless Rise"
-        },
-        "Artist": {
-            "S": "As I Lay Dying"
-        },
-        "SongTitle": {
-            "S": "Beyond Our Suffering"
-        }
+    "Key": {
+      "Artist": {
+        "S": "As I Lay Dying"
+      },
+      "SongTitle": {
+        "S": "Beyond Our Suffering"
+      }
     },
     "ReturnConsumedCapacity": "TOTAL",
     "TableName": "prefix--sample-table"

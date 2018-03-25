@@ -1,3 +1,5 @@
+# refer to https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+
 service: aws-dynamodb
 
 provider:
@@ -5,6 +7,10 @@ provider:
   runtime: nodejs6.10
   stage: dev
   region: ap-southeast-1
+  role: ${file(config.js):config.iamrole}
+  iamManagedPolicies: 
+    - ${file(config.js):config.dynamodbpolicy}
+    - ${file(config.js):config.cloudwatchlogspolicy}
 
 functions:
   AddEditItem:
@@ -43,9 +49,10 @@ functions:
           method: get
           cors: true
 
+# only add table in first deploy
 resources:
   Resources:
-    MusicTable:
+    SampleTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: prefix--sample-table
@@ -62,6 +69,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-
-environment:
-  variable1: value1

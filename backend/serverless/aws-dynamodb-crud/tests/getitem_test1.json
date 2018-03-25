@@ -1,12 +1,11 @@
 {
-    "Type": "Single",
     "Key": {
         "Artist": {
-            "S": "As I Lay Dying"
-        }, 
+            "S": "No One You Know"
+        },
         "SongTitle": {
-            "S": "Through Struggle"
-        }
+            "S": "Call Me Today"
+         }
     },
     "ReturnConsumedCapacity": "TOTAL",
     "TableName": "prefix--sample-table"
