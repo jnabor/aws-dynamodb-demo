@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "create": "serverless create -t aws-nodejs",
-    "deploy": "serverless deploy",
+    "deploy": "serverless deploy --stage dev",
+    "deploy-prod": "serverless deploy --stage prod",
     "test1": "serverless invoke --function AddEditItem --path tests/addedit_test1.json --log",
     "test2": "serverless invoke --function AddEditItem --path tests/addedit_test2.json --log",
     "test3": "serverless invoke --function AddEditItem --path tests/addedit_test3.json --log",

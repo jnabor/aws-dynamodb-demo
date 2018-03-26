@@ -5,7 +5,7 @@ service: aws-dynamodb
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: dev
+  stage: ${opt:stage}
   region: ap-southeast-1
   role: ${file(config.js):config.iamrole}
   iamManagedPolicies: 
@@ -55,7 +55,7 @@ resources:
     SampleTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: prefix--sample-table
+        TableName: ${self:service}-${opt:stage}-sample-table
         AttributeDefinitions:
           - AttributeName: Artist
             AttributeType: S
