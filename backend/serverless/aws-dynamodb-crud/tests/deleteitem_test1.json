@@ -8,5 +8,5 @@
       }
     },
     "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "prefix--sample-table"
+    "TableName": "aws-dynamodb-dev-sample-table"
 }

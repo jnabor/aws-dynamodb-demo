@@ -3,17 +3,30 @@ var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-
 
 module.exports.handler = (event, context, callback) => {
   const params = {
-    Item: event.Item,
-    ReturnConsumedCapacity: event.ReturnConsumedCapacity,
-    TableName: event.TableName
+    Item: event.body.Item,
+    ReturnConsumedCapacity: event.body.ReturnConsumedCapacity,
+    TableName: event.body.TableName
   }
-  dynamodb.putItem(params, function (err, data) {
+  dynamodb.putItem(params, (err, data) => {
     if (err) {
       console.log(err, err.stack)
-      callback(err, err.stack)
+      callback(null, module.response(event))
     } else {
       console.log(data)
-      callback(null, 'item added or updated')
+      callback(null, module.response({"message": "Item Added or Deleted"}))
     }
   })
+}
+
+module.response = (responseBody) => {
+  const response = {
+    "isBase64Encoded": false,
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin" : "*",
+      "Access-Control-Allow-Credentials" : true
+    },
+    body: JSON.stringify(responseBody)
+  }
+  return response
 }
