@@ -2,10 +2,12 @@ const AWS = require('aws-sdk')
 var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-10'})
 
 module.exports.handler = (event, context, callback) => {
+
+  let body = JSON.parse(event.body)
   const params = {
-    Item: event.body.Item,
-    ReturnConsumedCapacity: event.body.ReturnConsumedCapacity,
-    TableName: event.body.TableName
+    Item: body.Item,
+    ReturnConsumedCapacity: body.ReturnConsumedCapacity,
+    TableName: body.TableName
   }
   dynamodb.putItem(params, (err, data) => {
     if (err) {

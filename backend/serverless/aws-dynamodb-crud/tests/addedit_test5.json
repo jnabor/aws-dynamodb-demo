@@ -1,15 +1,3 @@
 {
-    "Item": {
-        "AlbumTitle": {
-            "S": "Shadows Are Security"
-        },
-        "Artist": {
-            "S": "As I Lay Dying"
-        },
-        "SongTitle": {
-            "S": "Through Struggle"
-        }
-    },
-    "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "aws-dynamodb-dev-sample-table"
+    "body":"{\"Item\": {\"AlbumTitle\": { \"S\": \"Shadows Are Security\"},\"Artist\": {\"S\": \"As I Lay Dying\"},\"SongTitle\": {\"S\": \"Through Struggle\"}},\"ReturnConsumedCapacity\": \"TOTAL\",\"TableName\": \"aws-dynamodb-dev-sample-table\"}"
 }

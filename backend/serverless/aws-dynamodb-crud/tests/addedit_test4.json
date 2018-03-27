@@ -1,15 +1,3 @@
 {
-    "Item": {
-        "AlbumTitle": {
-            "S": "The Powerless Rise"
-        },
-        "Artist": {
-            "S": "As I Lay Dying"
-        },
-        "SongTitle": {
-            "S": "Without Conclusion"
-        }
-    },
-    "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "aws-dynamodb-dev-sample-table"
+    "body": "{\"Item\": {\"AlbumTitle\": {\"S\": \"The Powerless Rise\"},\"Artist\": {\"S\": \"As I Lay Dying\"},\"SongTitle\": {\"S\": \"Without Conclusion\"}},\"ReturnConsumedCapacity\": \"TOTAL\",\"TableName\": \"aws-dynamodb-dev-sample-table\"}"
 }
