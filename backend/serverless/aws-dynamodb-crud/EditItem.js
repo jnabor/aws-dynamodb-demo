@@ -4,9 +4,13 @@ var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-
 module.exports.handler = (event, context, callback) => {
   let body = JSON.parse(event.body)
   const params = {
-    Item: body.Item,
+    ExpressionAttributeNames: body.ExpressionAttributeNames,
+    ExpressionAttributeValues: body.ExpressionAttributeValues,
+    Key: body.Key,
+    ReturnValues: body.ReturnValues,
     ReturnConsumedCapacity: body.ReturnConsumedCapacity,
-    TableName: body.TableName
+    TableName: body.TableName,
+    UpdateExpression: body.UpdateExpression
   }
   dynamodb.updateItem(params, (err, data) => {
     if (err) {

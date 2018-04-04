@@ -1,3 +1,3 @@
-{ 
-    "body": "{\"Item\": {\"AlbumTitle\": {\"S\": \"Somewhat Famous\"}, \"Artist\": {\"S\": \"No One You Know Updated\"}, \"SongTitle\": {\"S\": \"Call Me Today\"}}, \"ReturnConsumedCapacity\": \"TOTAL\", \"TableName\": \"aws-dynamodb-dev-sample-table\"}"
+{
+    "body": "{\"ExpressionAttributeNames\": {\"#AT\": \"AlbumTitle\",\"#Y\": \"Year\"},\"ExpressionAttributeValues\": {\":t\": {\"S\": \"Louder Than Ever Before\"},\":y\": {\"N\": \"2018\"}},\"Key\": {\"Artist\": {\"S\": \"No One You Know\"},\"SongTitle\": {\"S\": \"Call Me Today\"}},\"ReturnValues\": \"ALL_NEW\",\"ReturnConsumedCapacity\": \"TOTAL\",\"TableName\": \"aws-dynamodb-dev-sample-table\",\"UpdateExpression\": \"SET #Y = :y, #AT = :t\"}"
 }
