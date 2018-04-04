@@ -1,12 +1,3 @@
 {
-    "Key": {
-        "Artist": {
-            "S": "No One You Know"
-        },
-        "SongTitle": {
-            "S": "Call Me Today"
-         }
-    },
-    "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "aws-dynamodb-dev-sample-table"
+    "body": "{\"Key\": {\"Artist\": {\"S\": \"No One You Know\"},\"SongTitle\": {\"S\": \"Call Me Today\"}},\"ReturnConsumedCapacity\": \"TOTAL\",\"TableName\": \"aws-dynamodb-dev-sample-table\"}"
 }

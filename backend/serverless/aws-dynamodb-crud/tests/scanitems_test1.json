@@ -1,4 +1,3 @@
 {
-    "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "aws-dynamodb-dev-sample-table"
+    "body": "{\"ReturnConsumedCapacity\": \"TOTAL\",\"TableName\": \"aws-dynamodb-dev-sample-table\"}"
 }
