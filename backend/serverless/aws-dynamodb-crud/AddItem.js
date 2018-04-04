@@ -2,7 +2,6 @@ const AWS = require('aws-sdk')
 var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-10'})
 
 module.exports.handler = (event, context, callback) => {
-
   let body = JSON.parse(event.body)
   const params = {
     Item: body.Item,
@@ -15,7 +14,7 @@ module.exports.handler = (event, context, callback) => {
       callback(null, module.response(event))
     } else {
       console.log(data)
-      callback(null, module.response({"message": "Item Added or Deleted"}))
+      callback(null, module.response({"message": "Item Added"}))
     }
   })
 }

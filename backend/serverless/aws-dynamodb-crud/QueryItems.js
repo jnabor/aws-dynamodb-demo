@@ -2,11 +2,12 @@ const AWS = require('aws-sdk')
 var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-10'})
 
 module.exports.handler = (event, context, callback) => {
+  let body = JSON.parse(event.body)
   const params = {
-    ExpressionAttributeValues: event.ExpressionAttributeValues,
-    KeyConditionExpression: event.KeyConditionExpression,
-    ReturnConsumedCapacity: event.ReturnConsumedCapacity,
-    TableName: event.TableName
+    ExpressionAttributeValues: body.ExpressionAttributeValues,
+    KeyConditionExpression: body.KeyConditionExpression,
+    ReturnConsumedCapacity: body.ReturnConsumedCapacity,
+    TableName: body.TableName
   }
   dynamodb.query(params, function (err, data) {
     if (err) {
@@ -14,7 +15,7 @@ module.exports.handler = (event, context, callback) => {
       callback(err, err.stack)
     } else {
       console.log(data)
-      callback(null, data)
+      callback(null, module.response(data))
     }
   })
 }

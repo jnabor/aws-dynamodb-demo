@@ -4,16 +4,17 @@ var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-
 module.exports.handler = (event, context, callback) => {
   let body = JSON.parse(event.body)
   const params = {
+    Item: body.Item,
     ReturnConsumedCapacity: body.ReturnConsumedCapacity,
     TableName: body.TableName
   }
-  dynamodb.scan(params, function (err, data) {
+  dynamodb.updateItem(params, (err, data) => {
     if (err) {
       console.log(err, err.stack)
-      callback(err, err.stack)
+      callback(null, module.response(event))
     } else {
       console.log(data)
-      callback(null, module.response(data))
+      callback(null, module.response({"message": "Item Updated"}))
     }
   })
 }

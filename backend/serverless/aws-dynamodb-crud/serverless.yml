@@ -13,11 +13,18 @@ provider:
     - ${file(config.js):config.cloudwatchlogspolicy}
 
 functions:
-  AddEditItem:
-    handler: AddEditItem.handler
+  AddItem:
+    handler: AddItem.handler
     events:
       - http:
-          path: table/addedititem
+          path: table/additem
+          method: post
+          cors: true
+  EditItem:
+    handler: EditItem.handler
+    events:
+      - http:
+          path: table/edititem
           method: post
           cors: true
   DeleteItem:
