@@ -1,69 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html>
+  <head>
     <meta charset="utf-8">
-    <title>AWS DynamoDB</title>
-    <meta name="description" content="AWS API Gateway Test">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
-    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-</head>
-<body>
-<div id="app">
-<v-app>
-<v-content >
-    <v-container>
-        <v-layout row wrap justify-center>
-            <v-flex xs12 sm8 md6 lg4 xl4>
-                <v-card class="pa-4 mt-5">
-                    <h3 class="title mb-2">AWS DynamoDB Demo - Create Table</h3>
-                    <h3 class="subheading mb-4">Access via API Gateway with Cognito Authorizer</h3>
-                    <v-form v-model="valid">
-                        <v-text-field
-                            label="Your Name"
-                            v-model="name"
-                            :rules="nameRules"
-                             required></v-text-field>
-                        <v-text-field
-                            label="Your E-mail Address"
-                            v-model="email"
-                            :rules="emailRules"
-                            required></v-text-field>
-                        <v-text-field
-                            label="Message"
-                            v-model="message"
-                            :rules="messageRules"
-                            multi-line
-                            required></v-text-field>
-                        <v-btn
-                            block
-                            @click.native="onPost()" 
-                            :disabled="!valid" 
-                            class="mt-2 mb-4">
-                            SEND
-                        </v-btn>
-                    </v-form>
-                    <h3 class="subheading">RESPONSE</h3>
-                    <div v-if="showSuccess" class="alert alert-success" role="alert">
-                        {{ reponse }}
-                    </div>
-                    <div v-if="showError" class="alert alert-danger" role="alert">
-                        {{ reponse }}
-                    </div>
-                </v-card>   
-            </v-flex>
-        </v-layout>
-    </v-container>
-</v-content>
-</v-app>
-</div>
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
-<script>
-var app = new Vue({
-    el: '#app'
-})
-</script>
-</body>
+    <title>client</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>

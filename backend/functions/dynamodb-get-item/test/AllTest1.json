@@ -1,5 +1,0 @@
-{
-    "Type": "All",
-    "ReturnConsumedCapacity": "TOTAL",
-    "TableName": "prefix--sample-table"
-}
