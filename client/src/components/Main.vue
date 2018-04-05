@@ -19,7 +19,29 @@
           </v-toolbar>
           <v-card-text>
             <div v-if="model === '0'">
-              Add Item
+              <v-card class="transparent ma-5 pa-1 elevation-0">
+                <v-form v-model="valid0" ref="form" lazy-validation>
+                  <v-text-field
+                    label="Artist"
+                    v-model="artist"
+                    :rules="[v => !!v || 'Artist is required']"
+                    required>
+                  </v-text-field>
+                  <v-text-field
+                    label="Album Title"
+                    v-model="albumtitle"
+                    :rules="[v => !!v || 'Album Title is required']"
+                    required>
+                  </v-text-field>
+                  <v-text-field
+                    label="Song Title"
+                    v-model="songtitle"
+                    :rules="[v => !!v || 'Song Title is required']"
+                    required>
+                  </v-text-field>
+                  <v-btn @click.native="additem()">Submit</v-btn>
+                </v-form>
+              </v-card>
             </div>
             <div v-if="model === '1'">
               Update Item
@@ -44,12 +66,44 @@
 </template>
 
 <script>
+import * as config from './config'
 export default {
   data () {
     return {
       active: null,
       model: '0',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      artist: '',
+      albumtitle: '',
+      songtitle: '',
+      year: '',
+      genre: '',
+      votes: '',
+      valid0: false
+    }
+  },
+  methods: {
+    additem: () => {
+      let endpoint = config.apiPostAddItem
+      console.log(endpoint)
+      let payload = {
+        body: {
+          Item: {
+            AlbumTitle: {
+              S: 'Somewhat Famous'
+            },
+            Artist: {
+              S: 'No One You Know'
+            },
+            SongTitle: {
+              S: 'Call Me Today'
+            }
+          },
+          ReturnConsumedCapacity: 'TOTAL',
+          TableName: 'aws-dynamodb-dev-sample-table'
+        }
+      }
+      payload = JSON.stringify(payload)
+      console.log(JSON.stringify(payload))
     }
   }
 }
