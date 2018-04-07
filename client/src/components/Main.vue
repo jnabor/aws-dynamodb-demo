@@ -23,22 +23,19 @@
                 <v-form v-model="valid0" ref="form" lazy-validation>
                   <v-text-field
                     label="Artist"
-                    v-model="artist"
-                    :rules="[v => !!v || 'Artist is required']"
-                    required>
+                    v-model="artist">
                   </v-text-field>
                   <v-text-field
                     label="Album Title"
-                    v-model="albumtitle"
-                    :rules="[v => !!v || 'Album Title is required']"
-                    required>
+                    v-model="albumtitle">
                   </v-text-field>
                   <v-text-field
                     label="Song Title"
-                    v-model="songtitle"
-                    :rules="[v => !!v || 'Song Title is required']"
-                    required>
+                    v-model="songtitle">
                   </v-text-field>
+                  Artist      : {{ artist }} <br/>
+                  Album Title : {{ albumtitle }} <br/>
+                  Song Title  : {{ songtitle }} <br/>
                   <v-btn @click.native="additem()">Submit</v-btn>
                 </v-form>
               </v-card>
@@ -67,6 +64,8 @@
 
 <script>
 import * as config from './config'
+import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -82,28 +81,33 @@ export default {
     }
   },
   methods: {
-    additem: () => {
+    additem: function () {
       let endpoint = config.apiPostAddItem
-      console.log(endpoint)
       let payload = {
-        body: {
-          Item: {
-            AlbumTitle: {
-              S: 'Somewhat Famous'
-            },
-            Artist: {
-              S: 'No One You Know'
-            },
-            SongTitle: {
-              S: 'Call Me Today'
-            }
+        Item: {
+          AlbumTitle: {
+            S: this.albumtitle
           },
-          ReturnConsumedCapacity: 'TOTAL',
-          TableName: 'aws-dynamodb-dev-sample-table'
-        }
+          Artist: {
+            S: this.artist
+          },
+          SongTitle: {
+            S: this.songtitle
+          }
+        },
+        ReturnConsumedCapacity: 'TOTAL',
+        TableName: 'aws-dynamodb-dev-sample-table'
       }
-      payload = JSON.stringify(payload)
-      console.log(JSON.stringify(payload))
+      console.log('post rquest to ' + endpoint)
+      axios.post(endpoint, payload)
+        .then(res => {
+          console.log('Response:')
+          console.log(res)
+        })
+        .catch(err => {
+          console.log('Error:')
+          console.log(err)
+        })
     }
   }
 }
