@@ -49,7 +49,6 @@ export default {
         ReturnConsumedCapacity: 'TOTAL',
         TableName: 'aws-dynamodb-dev-sample-table'
       }
-      console.log('post rquest to ' + endpoint)
       axios.post(endpoint, payload)
         .then(res => {
           console.log('Response:')
