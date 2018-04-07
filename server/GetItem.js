@@ -2,6 +2,7 @@ const AWS = require('aws-sdk')
 var dynamodb = new AWS.DynamoDB({region: 'ap-southeast-1', apiVersion: '2012-08-10'})
 
 module.exports.handler = (event, context, callback) => {
+  console.log('console: ' + event.body)
   let body = JSON.parse(event.body)
   const params = {
     Key: body.Key,

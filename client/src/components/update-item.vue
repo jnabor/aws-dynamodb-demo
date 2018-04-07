@@ -23,9 +23,7 @@
 </template>
 
 <script>
-import * as config from './config'
 import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -38,7 +36,6 @@ export default {
   },
   methods: {
     additem: function () {
-      let endpoint = config.apiPostEditItem
       let payload = {
         ExpressionAttributeNames: {
           '#AT': 'AlbumTitle',
@@ -65,7 +62,7 @@ export default {
         TableName: 'aws-dynamodb-dev-sample-table',
         UpdateExpression: 'SET #Y = :y, #AT = :t'
       }
-      axios.post(endpoint, payload)
+      axios.post('/edititem', payload)
         .then(res => {
           console.log('Response:')
           console.log(res)

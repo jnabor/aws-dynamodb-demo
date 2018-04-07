@@ -15,9 +15,7 @@
 </template>
 
 <script>
-import * as config from './config'
 import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -28,7 +26,6 @@ export default {
   },
   methods: {
     additem: function () {
-      let endpoint = config.apiPostDeleteItem
       let payload = {
         Key: {
           Artist: {
@@ -42,7 +39,7 @@ export default {
         TableName: 'aws-dynamodb-dev-sample-table'
       }
 
-      axios.post(endpoint, payload)
+      axios.post('/deleteitem', payload)
         .then(res => {
           console.log('Response:')
           console.log(res)

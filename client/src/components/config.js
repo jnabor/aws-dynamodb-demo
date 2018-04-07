@@ -1,6 +1,0 @@
-export const apiPostAddItem = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/additem'
-export const apiPostEditItem = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/edititem'
-export const apiPostDeleteItem = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/deleteitem'
-export const apiGetGetItem = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/getitem'
-export const apiGetQueryItems = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/queryitems'
-export const apiGetScanItems = 'https://wi4vscyb81.execute-api.ap-southeast-1.amazonaws.com/dev/table/scanitems'
