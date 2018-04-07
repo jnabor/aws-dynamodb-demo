@@ -65,7 +65,6 @@ export default {
         TableName: 'aws-dynamodb-dev-sample-table',
         UpdateExpression: 'SET #Y = :y, #AT = :t'
       }
-      console.log('post request to ' + endpoint)
       axios.post(endpoint, payload)
         .then(res => {
           console.log('Response:')

@@ -1,7 +1,7 @@
 <template>
  <v-container grid-list-md>
     <v-layout row justify-center>
-      <v-flex xs8>
+      <v-flex xs12>
         <v-card class="mt-5">
           <v-toolbar tabs class="elevation-0">
             <v-toolbar-title>AWS DynamoDB Demo</v-toolbar-title>
