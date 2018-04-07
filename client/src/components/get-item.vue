@@ -9,7 +9,7 @@
       label="Key: Song Title"
       v-model="songtitle">
     </v-text-field>
-    <v-btn @click.native="additem()">Submit</v-btn>
+    <v-btn @click.native="getitem()">Submit</v-btn>
   </v-form>
   <v-card-text>
     {{ response }}
@@ -22,19 +22,31 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      artist: '',
-      songtitle: '',
+      artist: 'Myles Kennedy',
+      songtitle: 'Love can Only Heal',
       response: '',
       valid0: false
     }
   },
   methods: {
-    additem: function () {
-      axios.get('/getitem')
+    getitem: function () {
+      let payload = {
+        Key: {
+          Artist: {
+            S: this.artist
+          },
+          SongTitle: {
+            S: this.songtitle
+          }
+        },
+        ReturnConsumedCapacity: 'TOTAL',
+        TableName: 'aws-dynamodb-dev-sample-table'
+      }
+      axios.post('/getitem', payload)
         .then(res => {
           console.log('Response:')
           console.log(res)
-          this.response = res
+          this.response = res.data
         })
         .catch(err => {
           console.log('Error:')

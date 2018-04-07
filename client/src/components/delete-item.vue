@@ -9,7 +9,7 @@
       label="Key: Song Title"
       v-model="songtitle">
     </v-text-field>
-    <v-btn @click.native="additem()">Submit</v-btn>
+    <v-btn @click.native="deleteitem()">Submit</v-btn>
   </v-form>
 </v-card>
 </template>
@@ -25,7 +25,7 @@ export default {
     }
   },
   methods: {
-    additem: function () {
+    deleteitem: function () {
       let payload = {
         Key: {
           Artist: {

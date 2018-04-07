@@ -17,7 +17,7 @@
       label="New: Year"
       v-model="year">
     </v-text-field>
-    <v-btn @click.native="additem()">Submit</v-btn>
+    <v-btn @click.native="updateitem()">Submit</v-btn>
   </v-form>
 </v-card>
 </template>
@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    additem: function () {
+    updateitem: function () {
       let payload = {
         ExpressionAttributeNames: {
           '#AT': 'AlbumTitle',

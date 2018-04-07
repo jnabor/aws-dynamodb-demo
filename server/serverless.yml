@@ -39,21 +39,21 @@ functions:
     events:
       - http:
           path: table/getitem
-          method: get
+          method: post
           cors: true
   QueryItems:
     handler: QueryItems.handler
     events:
       - http:
           path: table/queryitems
-          method: get
+          method: post
           cors: true
   ScanItems:
     handler: ScanItems.handler
     events:
       - http:
           path: table/scanitems
-          method: get
+          method: post
           cors: true
 
 # only add table in first deploy
